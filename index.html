@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Simulator 99 Giveaway</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #c2f0ff, #e0f7fa);
+      color: #01579b;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .side-img {
+      position: absolute;
+      top: 50%;
+      width: 130px;
+      transform: translateY(-50%);
+      z-index: 0;
+      opacity: 0.95;
+    }
+
+    .left-img {
+      left: 10px;
+    }
+
+    .right-img {
+      right: 10px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 100px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(3, 169, 244, 0.4);
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0288d1;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .join-btn, .confirm-btn {
+      background-color: #03a9f4;
+      padding: 12px 25px;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .join-btn:hover, .confirm-btn:hover {
+      background-color: #0288d1;
+      transform: scale(1.05);
+    }
+
+    .confirm-btn {
+      display: none;
+    }
+
+    .loading-screen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 191, 255, 0.9);
+      color: white;
+      font-size: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0288d1;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #error-message {
+      display: none;
+      color: #d32f2f;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Huge Pet Side Images -->
+  <img src="huge-side.png" alt="Huge Pets Left" class="side-img left-img">
+  <img src="huge-side.png" alt="Huge Pets Right" class="side-img right-img">
+
+  <div class="container">
+    <h1>🎉 Pet Simulator 99 Giveaway 🎉</h1>
+    <p>🚀 Prizes: Titanic Pixel Monkey, Huge Chest Mimic, 3B Gems!</p>
+    <p>🎮 Join me in game now!</p>
+    <a href="https://join-roblox.com/users/1701651534/profile" target="_blank" class="join-btn">Join Now</a>
+    <br />
+    <a href="#" class="confirm-btn" id="confirmBtn">✅ If you have done it, please click here</a>
+    <p id="error-message">⚠️ It seems like we couldn't get anything. Try again.</p>
+  </div>
+
+  <!-- Fake Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    <p>Loading your rewards...</p>
+  </div>
+
+  <script>
+    // Show second button after 30 seconds
+    setTimeout(function () {
+      document.getElementById('confirmBtn').style.display = 'inline-block';
+    }, 30000);
+
+    // Fake loading and error
+    document.getElementById('confirmBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.getElementById('error-message').style.display = 'none';
+      document.getElementById('loadingScreen').style.display = 'flex';
+
+      setTimeout(function () {
+        document.getElementById('loadingScreen').style.display = 'none';
+        document.getElementById('error-message').style.display = 'block';
+      }, 10000);
+    });
+  </script>
+</body>
+</html>
